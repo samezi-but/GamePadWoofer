@@ -1,2 +1,3 @@
 # GamePadWoofer
-GamePad振動をウーファー代わりにするものです
+GamePad振動をウーファー代わりにするものです。
+XInputのみに対応しているのでPS4コンなどではXInputで動作できるようにする必要があります。
