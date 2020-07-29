@@ -2,20 +2,22 @@
 using UnityEngine;
 using XInputDotNetPure;
 
-public class VibrationTest : MonoBehaviour
+public class ControllerVibration : MonoBehaviour
 {
     [SerializeField] float right_power = 1;
     [SerializeField] float left_power = 1;
     [SerializeField] float duration = 0.5f;
 
+    public bool isRightVibration = false;
+    public bool isLeftVibration = false;
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || isRightVibration)
         {
             StartCoroutine("RightVibration");
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") || isLeftVibration)
         {
             StartCoroutine("LeftVibration");
         }
