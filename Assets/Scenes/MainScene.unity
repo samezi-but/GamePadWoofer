@@ -336,6 +336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stereoMixerString: "\u30B9\u30C6\u30EC\u30AA \u30DF\u30AD\u30B5\u30FC"
   m_gain: 10
+  m_volumeRate: 0
+  vibrationVolume: 0.25
 --- !u!4 &1162255475
 Transform:
   m_ObjectHideFlags: 0
@@ -364,8 +366,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   right_power: 1
   left_power: 1
-  duration: 0.5
+  duration: 5
   isRightVibration: 0
+  isLeftVibration: 0
 --- !u!82 &1162255477
 AudioSource:
   m_ObjectHideFlags: 0
