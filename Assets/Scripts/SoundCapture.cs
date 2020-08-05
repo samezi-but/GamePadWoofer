@@ -13,11 +13,20 @@ public class SoundCapture : MonoBehaviour
     private float[] spectrum = new float[256]; // スペクトラム
     private ControllerVibration controllerVibration;
     private AudioSource audioSource;
+    public string[] soundDevices;
+    [SerializeField]
+    public DeviceUIChanger deviceUIChanger;
     // Start is called before the first frame update
     void Start()
     {
         controllerVibration = GetComponent <ControllerVibration> ();
         audioSource = GetComponent<AudioSource>();
+        soundDevices = Microphone.devices;
+
+        // ドロップダウンメニューにデバイス名一覧を設定
+        deviceUIChanger.SetDropdownDevice(soundDevices);
+
+        int count = 0;
         foreach (string str in Microphone.devices)
         {
             Debug.Log(str);
@@ -28,8 +37,12 @@ public class SoundCapture : MonoBehaviour
                 Microphone.GetDeviceCaps(str, out minFreq, out maxFreq);
                 audioSource.clip = Microphone.Start(str, true, 2, minFreq);
                 audioSource.Play();
+
+                // ドロップダウンメニューを線tなくする
+                deviceUIChanger.SetDropdownIndex(count);
                 return;
             }
+            count++;
 
         }
     }
@@ -85,5 +98,19 @@ public class SoundCapture : MonoBehaviour
         //    controllerVibration.isRightVibration = false;
         //    controllerVibration.isLeftVibration = false;
         //}
+    }
+
+    /// <summary>
+    /// デバイスを変更する
+    /// </summary>
+    /// <param name="deviceNumber"></param>
+    public void ChangeSoundDevice(int deviceNumber)
+    {
+        string str = soundDevices[deviceNumber];
+        int minFreq, maxFreq;
+        audioSource.Stop();
+        Microphone.GetDeviceCaps(str, out minFreq, out maxFreq);
+        audioSource.clip = Microphone.Start(str, true, 2, minFreq);
+        audioSource.Play();
     }
 }
