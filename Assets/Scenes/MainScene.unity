@@ -349,7 +349,7 @@ RectTransform:
   - {fileID: 1847841697}
   - {fileID: 931789123}
   m_Father: {fileID: 426180613}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -407,7 +407,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 40449949}
-        m_MethodName: SetLowPassFrequency
+        m_MethodName: SetHighPassFrequency
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -822,8 +822,8 @@ RectTransform:
   - {fileID: 567666272}
   - {fileID: 237298087}
   - {fileID: 822769594}
-  - {fileID: 1876265959}
   - {fileID: 146511816}
+  - {fileID: 1876265959}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1350,7 +1350,7 @@ GameObject:
   - component: {fileID: 822769596}
   - component: {fileID: 822769595}
   m_Layer: 5
-  m_Name: LowPassFrequency
+  m_Name: LowCutFrequency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,7 +1407,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Low Pass Frequency
+  m_Text: Low Cut Frequency
 --- !u!222 &822769596
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2606,7 +2606,7 @@ GameObject:
   - component: {fileID: 1876265961}
   - component: {fileID: 1876265960}
   m_Layer: 5
-  m_Name: HighPassFrequency
+  m_Name: HighCutFrequency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2619,12 +2619,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876265958}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 426180613}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2663,7 +2663,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: High Pass Frequency
+  m_Text: High Cut Frequency
 --- !u!222 &1876265961
 CanvasRenderer:
   m_ObjectHideFlags: 0
