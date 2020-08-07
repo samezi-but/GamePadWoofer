@@ -9,7 +9,8 @@ public class SoundCapture : MonoBehaviour
     public float m_volumeRate; // 音量(0-1)
     public float passVolume = 0f; // 周波数の音量？
     public float vibrationVolume = 0.5f; // 振動する音量
-    public int cutoffFreq = 0; // カットオフする周波数
+    public int cutoffHighFreq = 0; // カットオフする高いほうの周波数
+    public int cutoffLowFreq = 0; // カットオフする低い方の周波数
     private float[] spectrum = new float[256]; // スペクトラム
     private ControllerVibration controllerVibration;
     private AudioSource audioSource;
@@ -54,11 +55,11 @@ public class SoundCapture : MonoBehaviour
         // Debug.Log(m_volumeRate);
         audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
         float sum = 0f;
-        for(int i = 1;i < spectrum.Length; i++)
+        for(int i = cutoffLowFreq;i < spectrum.Length; i++)
         {
             float spec = spectrum[i];
             sum += spec;
-            if(i >= cutoffFreq)
+            if(i >= cutoffHighFreq)
             {
                 break;
             }
