@@ -8,11 +8,14 @@ public class DeviceUIChanger : MonoBehaviour
     [SerializeField]
     public SoundCapture soundCapture;
     public Dropdown deviceDropDown;
+    public Slider lowPassSlider;
+    public Slider highPassSlider;
     public bool isCanChanged = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        lowPassSlider.value = soundCapture.cutoffLowFreq;
+        highPassSlider.value = soundCapture.cutoffHighFreq;
     }
 
     // Update is called once per frame
@@ -54,5 +57,23 @@ public class DeviceUIChanger : MonoBehaviour
         }
         print("ドロップダウン選択：" + number);
         soundCapture.ChangeSoundDevice(number);
+    }
+    
+    /// <summary>
+    /// ローパスフィルターの低周波を調整
+    /// </summary>
+    /// <param name="number"></param>
+    public void SetLowPassFrequency(float number)
+    {
+        soundCapture.cutoffLowFreq = (int)number;
+    }
+
+    /// <summary>
+    /// ハイパスフィルターの低周波を調整
+    /// </summary>
+    /// <param name="number"></param>
+    public void SetHighPassFrequency(float number)
+    {
+        soundCapture.cutoffHighFreq = (int)number;
     }
 }
